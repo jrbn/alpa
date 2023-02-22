@@ -23,10 +23,11 @@ from llm_serving.service.scheduler import (
     WeightedRoundRobin, NestedScheduler, FrontQueueScheduler, AsyncWrapper)
 from llm_serving.service.utils import build_logger
 
+import pydevd_pycharm
+pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
 
 GenerateItem = namedtuple("GenerateItem", ["uid", "return_queue", "data"])
 LogprobsItem = namedtuple("LogprobsItem", ["uid", "return_queue", "data"])
-
 
 class LangaugeModelWorker:
     def __init__(self,
