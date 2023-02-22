@@ -30,6 +30,7 @@ class Generator:
         self.logger = build_logger()
 
         print("I ARRIVE HERE2!")
+        exit(1)
 
         # Model arguments
         self.model_name = model_name
