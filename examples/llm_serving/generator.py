@@ -58,7 +58,7 @@ class Generator:
         """Compile and load a model."""
         tic = time.time()
 
-
+        print("I ARRIVE HERE!")
         import pydevd_pycharm
         pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
 
