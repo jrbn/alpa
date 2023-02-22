@@ -23,9 +23,6 @@ from llm_serving.service.scheduler import (
     WeightedRoundRobin, NestedScheduler, FrontQueueScheduler, AsyncWrapper)
 from llm_serving.service.utils import build_logger
 
-import pydevd_pycharm
-pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
-
 GenerateItem = namedtuple("GenerateItem", ["uid", "return_queue", "data"])
 LogprobsItem = namedtuple("LogprobsItem", ["uid", "return_queue", "data"])
 
@@ -46,6 +43,9 @@ class LangaugeModelWorker:
                  batch_wait_size_mult: int = 10,
                  batch_timeout: float = 1.0,
                  queue_timeout: float = 0.001):
+
+        import pydevd_pycharm
+        pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
 
         self.logger = build_logger()
         self.num_beams = num_beams
