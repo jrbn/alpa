@@ -44,9 +44,6 @@ class LangaugeModelWorker:
                  batch_timeout: float = 1.0,
                  queue_timeout: float = 0.001):
 
-        import pydevd_pycharm
-        pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
-
         self.logger = build_logger()
         self.num_beams = num_beams
         self.num_return_sequences = num_return_sequences

@@ -58,6 +58,11 @@ class Generator:
         """Compile and load a model."""
         tic = time.time()
 
+
+        import pydevd_pycharm
+        pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
+
+
         # Init model
         self.model_wrapper = get_model(self.model_name, self.path,
                                        torch_device=self.torch_device,
