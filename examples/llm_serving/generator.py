@@ -29,9 +29,6 @@ class Generator:
                  num_return_sequences=1):
         self.logger = build_logger()
 
-        print("I ARRIVE HERE2!")
-        exit(1)
-
         # Model arguments
         self.model_name = model_name
         self.path = path
@@ -61,10 +58,8 @@ class Generator:
         """Compile and load a model."""
         tic = time.time()
 
-        print("I ARRIVE HERE!")
         import pydevd_pycharm
         pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
-
 
         # Init model
         self.model_wrapper = get_model(self.model_name, self.path,
