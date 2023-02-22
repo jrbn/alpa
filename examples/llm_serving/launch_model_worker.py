@@ -11,6 +11,7 @@ import alpa
 from alpa.serve import run_controller, CONTROLLER_NAME
 import ray
 import torch
+import pydevd_pycharm
 
 from llm_serving.generator import Generator
 from llm_serving.service.constants import (
@@ -43,6 +44,8 @@ class LangaugeModelWorker:
                  batch_wait_size_mult: int = 10,
                  batch_timeout: float = 1.0,
                  queue_timeout: float = 0.001):
+
+        pydevd_pycharm.settrace('localhost', port=22000, stdoutToServer=True, stderrToServer=True)
 
         self.logger = build_logger()
         self.num_beams = num_beams
